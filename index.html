@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GFS - Consultoria Estratégica para Negócios de Alimentação</title>
+    
+    <!-- Fonte Inter (Padrão moderno e clean como a referência) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (Framework de estilos) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração de Variáveis (Cores e Fontes) conforme solicitado -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Paleta baseada no estilo Dark/Clean da referência
+                        brand: {
+                            DEFAULT: '#F59E0B', // Um tom Ambar/Dourado para remeter a "Comida Premium" e "Lucro"
+                            dark: '#D97706',
+                            light: '#FBBF24'
+                        },
+                        dark: {
+                            900: '#0a0a0a', // Fundo principal (quase preto)
+                            800: '#171717', // Fundo de cards
+                            700: '#262626', // Bordas
+                            600: '#404040'  // Textos secundários
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Variáveis CSS puras para facilitar manutenção futura */
+        :root {
+            --bg-body: #0a0a0a;
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
+            --accent-color: #F59E0B;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Efeito sutil de gradiente no fundo */
+        .hero-glow {
+            background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.15) 0%, rgba(10, 10, 10, 0) 50%);
+        }
+
+        /* Estilo dos Cards (Borda fina, fundo escuro) */
+        .card {
+            background-color: #171717; /* dark-800 */
+            border: 1px solid #262626; /* dark-700 */
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Botão CTA Padrão */
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #000;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            filter: brightness(110%);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Ícones SVG inline para performance */
+        .icon {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-color);
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- ==========================================
+         SEÇÃO 1 – HERO
+    ========================================== -->
+    <header class="relative pt-20 pb-16 lg:pt-32 lg:pb-24 hero-glow border-b border-dark-700">
+        <div class="container mx-auto px-6 lg:px-12 max-w-6xl text-center">
+            
+            <!-- Badge pequena no topo -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-800 border border-dark-700 mb-8">
+                <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+                <span class="text-xs font-medium text-gray-300 uppercase tracking-wide">Consultoria Especializada</span>
+            </div>
+
+            <h1 class="text-4xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+                A receita certa para negócios de <br class="hidden lg:block"/>
+                <span class="text-brand">alimentação lucrativos e previsíveis.</span>
+            </h1>
+
+            <p class="text-lg lg:text-xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed">
+                A GFS é uma consultoria estratégica especializada em restaurantes, churrascarias, hamburguerias, pizzarias e outros negócios de alimentação que querem crescer com salão cheio, margem saudável e clientes recorrentes — sem depender de improviso em marketing.
+            </p>
+
+            <!-- Bullet Points Hero -->
+            <div class="flex flex-wrap justify-center gap-4 mb-10 text-sm lg:text-base text-gray-300">
+                <div class="flex items-center gap-2 bg-dark-800 px-4 py-2 rounded-lg border border-dark-700">
+                    <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Foco em margem e lucro
+                </div>
+                <div class="flex items-center gap-2 bg-dark-800 px-4 py-2 rounded-lg border border-dark-700">
+                    <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Visão 360° da operação
+                </div>
+                <div class="flex items-center gap-2 bg-dark-800 px-4 py-2 rounded-lg border border-dark-700">
+                    <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Estratégia sob medida
+                </div>
+            </div>
+
+            <!-- Texto de Apoio -->
+            <p class="text-gray-500 mb-8 max-w-2xl mx-auto text-sm italic">
+                "Se a sua casa já vende, mas o caixa não acompanha o esforço, talvez não falte trabalho — falte uma receita de crescimento bem pensada. A GFS organiza números, operação e marketing para o seu negócio de alimentação crescer com previsibilidade."
+            </p>
+
+            <!-- CTA -->
+            <div class="flex flex-col items-center gap-3">
+                <a href="#agendar" class="btn-primary px-8 py-4 rounded-lg text-lg w-full md:w-auto text-center transform hover:-translate-y-1 transition-transform">
+                    Agendar Sessão Estratégica de Diagnóstico
+                </a>
+                <span class="text-xs text-gray-500">
+                    Converse com nosso time e saia com uma visão clara dos próximos passos.
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         SEÇÃO 2 – PROVA SOCIAL (CASES)
+    ========================================== -->
+    <section class="py-16 bg-dark-900 border-b border-dark-700">
+        <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Prova de que essa receita funciona na prática</h2>
+                <p class="text-gray-400">Alguns exemplos de negócios de alimentação que destravaram crescimento com a GFS.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Case 1 -->
+                <div class="card p-6 rounded-xl flex flex-col">
+                    <div class="bg-dark-900 w-12 h-12 rounded-lg flex items-center justify-center mb-4 border border-dark-700">
+                        <!-- Icone Churrasco/Carne -->
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M6 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.5zm6-5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5V6.5zm6 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v6.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5V8.5z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Churrascaria: De casa cheia só no fim de semana para faturamento estável</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed flex-grow">
+                        Uma churrascaria com movimento concentrado apenas em sábado e domingo vivia de promoções que espremiam a margem. Com a Receita GFS, organizamos cardápio, posicionamento e campanhas para trazer o cliente certo ao longo da semana, com foco em lucro por mesa, não só em lotação.
+                    </p>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="card p-6 rounded-xl flex flex-col">
+                    <div class="bg-dark-900 w-12 h-12 rounded-lg flex items-center justify-center mb-4 border border-dark-700">
+                        <!-- Icone Hamburguer -->
+                        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Hamburgueria: Transformou seguidores em clientes recorrentes</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed flex-grow">
+                        Uma hamburgueria com presença forte nas redes sociais, mas pouco retorno em vendas, vivia de ações soltas. Com a GFS, definimos produtos âncora, posicionamento e uma rotina de comunicação pensada para atrair e reter o cliente ideal. Resultado: aumento no ticket médio e mais pedidos.
+                    </p>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="card p-6 rounded-xl flex flex-col">
+                    <div class="bg-dark-900 w-12 h-12 rounded-lg flex items-center justify-center mb-4 border border-dark-700">
+                        <!-- Icone Restaurante -->
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Restaurante à la carte: Ajustou o tempero da margem e do marketing</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed flex-grow">
+                        Um restaurante à la carte com bom movimento não tinha clareza de margem por prato nem retorno dos anúncios. Entramos primeiro nos números e no menu; depois, afinamos o marketing para empurrar os pratos mais lucrativos. O crescimento passou a ser baseado em lucro, não só em volume.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-10 text-center border-t border-dark-700 pt-6">
+                <p class="text-brand font-medium italic">
+                    "Cada negócio tem seu tempero. O que se repete é a receita: olhar para os números, alinhar operação e só então ligar o fogo do marketing."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 3 – DOR E CONTEXTO
+    ========================================== -->
+    <section class="py-16 bg-dark-800">
+        <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-4">O problema não é falta de esforço. <br> <span class="text-gray-400">É uma receita de crescimento mal estruturada.</span></h2>
+                <p class="text-gray-400">Se você se reconhece nesses pontos, é sinal de que a casa precisa de uma nova receita.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- Bullet Points de Dor -->
+                <div class="flex items-start gap-3 p-4 border border-dark-700 rounded-lg bg-dark-900">
+                    <span class="text-red-500 mt-1">✕</span>
+                    <p class="text-gray-300 text-sm">A casa enche em alguns dias, mas o caixa não acompanha o estresse.</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 border border-dark-700 rounded-lg bg-dark-900">
+                    <span class="text-red-500 mt-1">✕</span>
+                    <p class="text-gray-300 text-sm">Você investe em posts, influenciadores ou anúncios, mas não enxerga o lucro.</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 border border-dark-700 rounded-lg bg-dark-900">
+                    <span class="text-red-500 mt-1">✕</span>
+                    <p class="text-gray-300 text-sm">O marketing promete uma coisa, a operação entrega outra.</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 border border-dark-700 rounded-lg bg-dark-900">
+                    <span class="text-red-500 mt-1">✕</span>
+                    <p class="text-gray-300 text-sm">As ações são soltas: promoções, campanhas, vídeos virais — sem um plano.</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 border border-dark-700 rounded-lg bg-dark-900">
+                    <span class="text-red-500 mt-1">✕</span>
+                    <p class="text-gray-300 text-sm">Falta clareza de CMV, margem por prato, ticket médio e metas reais.</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 border border-dark-700 rounded-lg bg-dark-900">
+                    <span class="text-red-500 mt-1">✕</span>
+                    <p class="text-gray-300 text-sm">Você sente que trabalha muito, mas cresce pouco.</p>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <p class="text-lg font-medium text-white">
+                    O que falta não é boa comida ou atendimento. <br>
+                    <span class="text-brand">Falta uma forma de pensar o seu negócio de alimentação como empresa.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 4 – O QUE É A GFS
+    ========================================== -->
+    <section class="py-16 bg-dark-900 border-y border-dark-700">
+        <div class="container mx-auto px-6 lg:px-12 max-w-6xl grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-2">O que é a GFS</h2>
+                <h3 class="text-xl text-brand mb-6">Consultoria estratégica criada para negócios de alimentação.</h3>
+                
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    A GFS é uma consultoria especializada em negócios de alimentação. Nós conectamos cozinha, salão, números e marketing para construir uma receita de crescimento própria para o seu restaurante, churrascaria, hamburgueria, pizzaria ou bar.
+                </p>
+
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-3 text-gray-400">
+                        <svg class="w-5 h-5 text-brand flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Foco em resultados de negócio, não em vaidade.
+                    </li>
+                    <li class="flex items-center gap-3 text-gray-400">
+                        <svg class="w-5 h-5 text-brand flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Olhar técnico para CMV, margem, ticket médio.
+                    </li>
+                    <li class="flex items-center gap-3 text-gray-400">
+                        <svg class="w-5 h-5 text-brand flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Estratégia feita para o seu contexto, não fórmula pronta.
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Imagem Decorativa Abstrata / Bloco Visual -->
+            <div class="relative h-64 md:h-80 w-full rounded-xl overflow-hidden border border-dark-700 bg-dark-800 flex items-center justify-center group">
+                <div class="absolute inset-0 bg-gradient-to-tr from-dark-900 to-transparent z-10"></div>
+                <!-- Simulação de gráfico/dashboard abstrato -->
+                <div class="grid grid-cols-3 gap-2 opacity-30 transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="h-20 w-16 bg-brand rounded-t-lg mt-auto"></div>
+                    <div class="h-32 w-16 bg-brand rounded-t-lg mt-auto"></div>
+                    <div class="h-40 w-16 bg-brand rounded-t-lg mt-auto"></div>
+                </div>
+                <div class="absolute z-20 text-center">
+                    <span class="block text-4xl font-bold text-white mb-1">+ Margem</span>
+                    <span class="block text-sm text-gray-400 uppercase tracking-widest">Previsibilidade</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 5 – A RECEITA GFS (MODO DE PREPARO)
+    ========================================== -->
+    <section class="py-16 bg-dark-900">
+        <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">A Receita GFS para o seu negócio</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Em vez de mais tarefas soltas, um modo de preparo claro para crescer. Não existe mágica, existe modo de preparo.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Passo 1 -->
+                <div class="relative p-6 border border-dark-700 rounded-xl bg-dark-800 hover:border-brand transition-colors">
+                    <span class="absolute -top-3 left-6 bg-brand text-black font-bold px-3 py-1 rounded text-xs">ETAPA 01</span>
+                    <h3 class="text-lg font-bold text-white mt-4 mb-2">Escolha dos ingredientes</h3>
+                    <p class="text-sm text-gray-400">Entendemos o que já está na sua despensa: números, menu, público atual, concorrência e posicionamento.</p>
+                </div>
+
+                <!-- Passo 2 -->
+                <div class="relative p-6 border border-dark-700 rounded-xl bg-dark-800 hover:border-brand transition-colors">
+                    <span class="absolute -top-3 left-6 bg-brand text-black font-bold px-3 py-1 rounded text-xs">ETAPA 02</span>
+                    <h3 class="text-lg font-bold text-white mt-4 mb-2">Mise en place da estratégia</h3>
+                    <p class="text-sm text-gray-400">Com tudo na mesa, definimos metas, posicionamento, prioridades de crescimento e foco nos produtos certos.</p>
+                </div>
+
+                <!-- Passo 3 -->
+                <div class="relative p-6 border border-dark-700 rounded-xl bg-dark-800 hover:border-brand transition-colors">
+                    <span class="absolute -top-3 left-6 bg-brand text-black font-bold px-3 py-1 rounded text-xs">ETAPA 03</span>
+                    <h3 class="text-lg font-bold text-white mt-4 mb-2">Fogo na cozinha</h3>
+                    <p class="text-sm text-gray-400">Entramos em ação com ajustes em oferta, experiência e comunicação, sempre mirando margem e faturamento.</p>
+                </div>
+
+                <!-- Passo 4 -->
+                <div class="relative p-6 border border-dark-700 rounded-xl bg-dark-800 hover:border-brand transition-colors">
+                    <span class="absolute -top-3 left-6 bg-brand text-black font-bold px-3 py-1 rounded text-xs">ETAPA 04</span>
+                    <h3 class="text-lg font-bold text-white mt-4 mb-2">Degustação e ajustes</h3>
+                    <p class="text-sm text-gray-400">A cada ciclo, analisamos resultados, ouvimos a casa e ajustamos o tempero da estratégia para seguir crescendo.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <p class="text-gray-300 font-medium">Mais do que tarefas, você ganha uma forma de pensar crescimento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 6 – VÍDEO
+    ========================================== -->
+    <section class="py-16 bg-dark-800 border-t border-dark-700">
+        <div class="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-2">Assista à receita em ação</h2>
+            <p class="text-gray-400 mb-8">Um recado direto para donos de negócios de alimentação.</p>
+            
+            <p class="text-sm text-gray-500 mb-8 max-w-2xl mx-auto">
+                Neste espaço, vamos mostrar em vídeo como a Receita GFS organiza o crescimento de negócios de alimentação na prática. Uma conversa franca sobre o que realmente muda quando você para de improvisar.
+            </p>
+
+            <!-- Placeholder do Vídeo -->
+            <div class="w-full aspect-video bg-black rounded-xl border border-dark-700 flex flex-col items-center justify-center group cursor-pointer relative overflow-hidden">
+                <!-- Thumb simulada -->
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-60"></div>
+                
+                <div class="w-20 h-20 bg-brand rounded-full flex items-center justify-center z-10 transition-transform transform group-hover:scale-110 shadow-lg shadow-amber-500/20">
+                    <svg class="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <p class="mt-4 text-gray-300 z-10 font-medium">O vídeo será inserido aqui</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 7 – PARA QUEM É
+    ========================================== -->
+    <section class="py-16 bg-dark-900">
+        <div class="container mx-auto px-6 lg:px-12 max-w-5xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-4">Para quem é essa receita</h2>
+                <p class="text-gray-400">A GFS é para quem leva o negócio de alimentação a sério.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- É para você -->
+                <div class="bg-dark-800 p-8 rounded-xl border border-green-900/30">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span class="text-green-500">✔</span> É para você se:
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-gray-300 text-sm">
+                            <span class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                            Você é dono de restaurante, churrascaria, hamburgueria, pizzaria, bar ou similar.
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-300 text-sm">
+                            <span class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                            O seu negócio já vende, mas margem e organização não acompanham.
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-300 text-sm">
+                            <span class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                            Você quer parar de ações soltas e ter um plano consistente.
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-300 text-sm">
+                            <span class="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
+                            Está disposto a olhar para números e revisar cardápio.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Não é para você -->
+                <div class="bg-dark-800 p-8 rounded-xl border border-red-900/30 opacity-70 hover:opacity-100 transition-opacity">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span class="text-red-500">✕</span> E não é para quem:
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-gray-400 text-sm">
+                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                            Busca apenas mais seguidores ou likes nas redes sociais.
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-400 text-sm">
+                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                            Quer solução milagrosa sem se envolver na estratégia.
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-400 text-sm">
+                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0"></span>
+                            Negócios que ainda não têm operação mínima para suportar demanda.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 8 – FAQ
+    ========================================== -->
+    <section class="py-16 bg-dark-800 border-y border-dark-700">
+        <div class="container mx-auto px-6 lg:px-12 max-w-3xl">
+            <h2 class="text-3xl font-bold text-center mb-10">Talvez você esteja se perguntando…</h2>
+            
+            <div class="space-y-4">
+                <!-- Pergunta 1 -->
+                <details class="group bg-dark-900 rounded-lg border border-dark-700">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white">
+                        <span>Já tenho agência de marketing. Ainda faz sentido?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 mt-0 px-5 pb-5 text-sm leading-relaxed">
+                        Sim. A GFS pode complementar o trabalho da sua agência com uma visão estratégica do negócio: números, menu, posicionamento e plano de crescimento. A execução pode continuar com a sua agência, mas com uma receita mais clara.
+                    </div>
+                </details>
+
+                <!-- Pergunta 2 -->
+                <details class="group bg-dark-900 rounded-lg border border-dark-700">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white">
+                        <span>Isso é só tráfego pago?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 mt-0 px-5 pb-5 text-sm leading-relaxed">
+                        Não. O tráfego pode ser uma ferramenta, mas a GFS começa pelo negócio: números, cardápio, operação e posicionamento.
+                    </div>
+                </details>
+
+                <!-- Pergunta 3 -->
+                <details class="group bg-dark-900 rounded-lg border border-dark-700">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white">
+                        <span>Vou precisar mudar tudo?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 mt-0 px-5 pb-5 text-sm leading-relaxed">
+                        Normalmente não. Começamos pelo que mais impacta resultado com menos atrito. Em alguns casos, ajustes mais profundos serão necessários — e nós acompanhamos esse processo.
+                    </div>
+                </details>
+
+                <!-- Pergunta 4 -->
+                <details class="group bg-dark-900 rounded-lg border border-dark-700">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-white">
+                        <span>Preciso estar na mesma cidade?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 mt-0 px-5 pb-5 text-sm leading-relaxed">
+                        Não. A consultoria pode ser conduzida on-line, com reuniões estratégicas e análise de dados à distância.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 9 – QUEM ESTÁ POR TRÁS
+    ========================================== -->
+    <section class="py-16 bg-dark-900">
+        <div class="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-6">Quem prepara essa receita</h2>
+            <div class="bg-dark-800 p-8 rounded-xl border border-dark-700 inline-block">
+                <p class="text-gray-300 leading-relaxed mb-4">
+                    "A GFS nasce da união entre estratégia, operação e marketing voltados para negócios de alimentação. Nosso time já viveu a rotina de cozinhas cheias, salões movimentados e planilhas apertadas. Por isso, falamos a língua de quem está na linha de frente do food service."
+                </p>
+                <p class="text-brand font-medium">
+                    Nosso trabalho é transformar essa experiência em uma receita de crescimento clara para o seu negócio.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SEÇÃO 10 – CTA FINAL
+    ========================================== -->
+    <footer class="py-20 bg-dark-900 border-t border-dark-700 relative overflow-hidden" id="agendar">
+        <!-- Efeito de fundo -->
+        <div class="absolute inset-0 bg-gradient-to-t from-brand/5 to-transparent pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 lg:px-12 max-w-3xl text-center relative z-10">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-white">
+                Pronto para testar uma nova receita de crescimento?
+            </h2>
+            <p class="text-gray-400 mb-8 text-lg">
+                Se você sente que já deu o seu máximo no dia a dia, mas ainda falta um plano claro para crescer com margem, previsibilidade e marca forte, o próximo passo não é mais uma campanha solta — é ajustar a receita.
+            </p>
+            <p class="text-gray-400 mb-10 text-sm">
+                Na Sessão Estratégica de Diagnóstico, vamos olhar para o seu negócio, entender onde você está e quais são os passos mais inteligentes para crescer.
+            </p>
+
+            <div class="flex flex-col items-center gap-4">
+                <a href="#" class="btn-primary px-10 py-5 rounded-lg text-lg font-bold shadow-lg shadow-amber-500/20 w-full md:w-auto transform hover:scale-105 transition-transform">
+                    Agendar Sessão Estratégica de Diagnóstico
+                </a>
+                <span class="text-xs text-gray-500">
+                    Após clicar, você será direcionado para falar com nosso time e alinhar o melhor horário.
+                </span>
+            </div>
+
+            <!-- Copyright simples -->
+            <div class="mt-16 pt-8 border-t border-dark-700 text-xs text-gray-600">
+                &copy; 2024 GFS Consultoria. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
