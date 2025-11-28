@@ -39,11 +39,16 @@
             },
             animation: {
               float: "float 6s ease-in-out infinite",
+              scroll: "scroll 40s linear infinite", // Animação do carrossel (lenta: 40s)
             },
             keyframes: {
               float: {
                 "0%, 100%": { transform: "translateY(0)" },
                 "50%": { transform: "translateY(-10px)" },
+              },
+              scroll: {
+                "0%": { transform: "translateX(0)" },
+                "100%": { transform: "translateX(-50%)" }, // Move 50% (o tamanho de um conjunto de logos)
               },
             },
           },
@@ -173,8 +178,7 @@
           </a>
           <p class="text-sm text-gray-400 max-w-lg">
             "Se a sua casa já vende, mas o caixa não acompanha o esforço, talvez
-            não falte trabalho — falte uma receita de crescimento pensada para
-            lucro e previsibilidade."
+            não falte trabalho — falte uma receita de crescimento bem pensada."
           </p>
         </div>
       </div>
@@ -184,6 +188,134 @@
         class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-dark-950 to-transparent"
       ></div>
     </header>
+
+    <!-- ==========================================
+         SEÇÃO NOVA: LOGOS CLIENTES (CARROSSEL)
+    ========================================== -->
+    <section
+      class="py-16 bg-dark-950 border-t border-b border-dark-800 relative z-20 overflow-hidden"
+    >
+      <div
+        class="container mx-auto px-6 lg:px-12 max-w-6xl text-center reveal mb-10"
+      >
+        <h3
+          class="text-white font-medium mb-2 tracking-wide text-sm md:text-base uppercase"
+        >
+          Negócios de alimentação que já confiaram na nossa receita
+        </h3>
+        <p class="text-gray-500 text-xs md:text-sm">
+          Algumas marcas que já passaram pela GFS.
+        </p>
+      </div>
+
+      <!-- Container do Carrossel -->
+      <div class="relative w-full max-w-[100vw] overflow-hidden group">
+        <!-- Máscaras laterais para suavizar a entrada/saída (Fade) -->
+        <div
+          class="absolute top-0 left-0 w-12 md:w-32 h-full bg-gradient-to-r from-dark-950 to-transparent z-10 pointer-events-none"
+        ></div>
+        <div
+          class="absolute top-0 right-0 w-12 md:w-32 h-full bg-gradient-to-l from-dark-950 to-transparent z-10 pointer-events-none"
+        ></div>
+
+        <!-- Trilho Animado (Duplicado para loop infinito) -->
+        <div
+          class="flex w-max animate-scroll group-hover:[animation-play-state:paused]"
+        >
+          <!-- CONJUNTO 1 DE LOGOS -->
+          <div class="flex items-center gap-6 px-3">
+            <!-- Logo Card 1 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 1</span>
+            </div>
+            <!-- Logo Card 2 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 2</span>
+            </div>
+            <!-- Logo Card 3 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 3</span>
+            </div>
+            <!-- Logo Card 4 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 4</span>
+            </div>
+            <!-- Logo Card 5 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 5</span>
+            </div>
+            <!-- Logo Card 6 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 6</span>
+            </div>
+            <!-- Logo Card 7 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 7</span>
+            </div>
+          </div>
+
+          <!-- CONJUNTO 2 DE LOGOS (Cópia exata para o loop funcionar) -->
+          <div class="flex items-center gap-6 px-3">
+            <!-- Logo Card 1 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 1</span>
+            </div>
+            <!-- Logo Card 2 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 2</span>
+            </div>
+            <!-- Logo Card 3 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 3</span>
+            </div>
+            <!-- Logo Card 4 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 4</span>
+            </div>
+            <!-- Logo Card 5 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 5</span>
+            </div>
+            <!-- Logo Card 6 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 6</span>
+            </div>
+            <!-- Logo Card 7 -->
+            <div
+              class="w-40 h-20 bg-dark-800 rounded-xl border border-dark-700/50 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:bg-dark-700 hover:scale-105 transition-all duration-300 cursor-pointer shadow-lg"
+            >
+              <span class="text-sm font-bold text-gray-300">LOGO 7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ==========================================
          SEÇÃO 2 – PROVA SOCIAL (VISUAL NOVO COM IMAGENS)
@@ -747,51 +879,52 @@
     <!-- ==========================================
          SEÇÃO 6 – VÍDEO (IMPACTO VISUAL)
     ========================================== -->
-    <section class="py-20 bg-dark-950 border-t border-dark-800">
-      <div class="container mx-auto px-6 lg:px-12 max-w-5xl text-center reveal">
-        <h2 class="text-3xl font-bold mb-2">Assista à receita em ação</h2>
-        <p class="text-gray-400 mb-8">
-          Um recado direto para donos de negócios de alimentação.
-        </p>
+<section class="py-20 bg-dark-950 border-t border-dark-800">
+  <div class="container mx-auto px-6 lg:px-12 max-w-5xl text-center">
+    <h2 class="text-3xl font-bold mb-2">Assista à receita em ação</h2>
+    <p class="text-gray-400 mb-8">Um recado direto para donos de negócios de alimentação.</p>
 
-        <p class="text-sm text-gray-500 mb-10 max-w-2xl mx-auto">
-          Uma conversa franca sobre o que realmente muda quando você para de
-          improvisar e passa a tratar seu restaurante como empresa.
-        </p>
+    <p class="text-sm text-gray-500 mb-10 max-w-2xl mx-auto">
+      Uma conversa franca sobre o que realmente muda quando você para de improvisar e passa a tratar seu restaurante como empresa.
+    </p>
 
-        <!-- Video Player Styled -->
-        <div
-          class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl group cursor-pointer border border-dark-700"
+    <!-- WRAPPER DO VÍDEO -->
+    <div
+      id="gfs-video-wrapper"
+      class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-dark-700"
+    >
+      <!-- THUMB CUSTOM (ANTES DO CLIQUE) -->
+      <button
+        id="gfs-video-thumb"
+        type="button"
+        class="relative w-full h-full group"
+      >
+        <!-- Imagem de fundo: thumbnail do próprio vídeo -->
+        <img
+          src="https://img.youtube.com/vi/bpOSxM0rNPM/hqdefault.jpg"
+          alt="Vídeo GFS"
+          class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
         >
-          <!-- Imagem de capa do vídeo -->
-          <img
-            src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2070&auto=format&fit=crop"
-            class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700"
-            alt="Cozinha"
-          />
 
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div
-              class="w-20 h-20 bg-brand/90 backdrop-blur rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.5)] group-hover:scale-110 transition-transform duration-300"
-            >
-              <svg
-                class="w-8 h-8 text-black ml-1"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
+        <!-- Overlay escuro -->
+        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300"></div>
+
+        <!-- Botão play + texto -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center gap-4">
+          <div class="w-20 h-20 bg-brand/90 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.5)] group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
           </div>
-          <div class="absolute bottom-6 left-0 w-full text-center">
-            <span
-              class="text-white font-medium bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm"
-              >Clique para assistir</span
-            >
-          </div>
+          <span class="text-white font-medium bg-black/70 px-4 py-2 rounded-full backdrop-blur-sm">
+            Clique para assistir
+          </span>
         </div>
-      </div>
-    </section>
+      </button>
+    </div>
+  </div>
+</section>
+
 
     <!-- ==========================================
          SEÇÃO 7 – PARA QUEM É
@@ -1088,7 +1221,7 @@
             href="#"
             class="btn-primary bg-brand hover:bg-white hover:text-black text-black font-bold px-12 py-5 rounded-xl text-xl shadow-[0_0_25px_rgba(245,158,11,0.4)] transform hover:scale-105 transition-all duration-300 w-full md:w-auto"
           >
-            Agendar Sessão Estratégica de Diagnóstico
+            Agendar Diagnóstico Gratuito
           </a>
           <span class="text-sm text-gray-500 mt-2">
             Vamos alinhar o melhor horário para o seu negócio.
@@ -1107,26 +1240,55 @@
 
     <!-- SCRIPT SIMPLES PARA ANIMAÇÃO NO SCROLL (Sem Frameworks Pesados) -->
     <script>
-      // Função que observa quando os elementos aparecem na tela
-      const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.1, // Dispara quando 10% do elemento estiver visível
-      };
+  // ============================
+  // ANIMAÇÃO NO SCROLL (SEU CÓDIGO)
+  // ============================
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
 
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active"); // Adiciona a classe que faz o fade-in
-            observer.unobserve(entry.target); // Para de observar depois que animou
-          }
-        });
-      }, observerOptions);
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
 
-      // Seleciona todos os elementos com a classe 'reveal'
-      document.querySelectorAll(".reveal").forEach((el) => {
-        observer.observe(el);
-      });
-    </script>
+  document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+  });
+
+  // ============================
+  // VÍDEO: TROCAR THUMB POR IFRAME
+  // ============================
+  const videoWrapper = document.getElementById('gfs-video-wrapper');
+  const videoThumb   = document.getElementById('gfs-video-thumb');
+
+  if (videoWrapper && videoThumb) {
+    videoThumb.addEventListener('click', () => {
+      // remove o thumb inteiro (imagem + botão)
+      videoThumb.remove();
+
+      // cria o iframe do YouTube
+      const iframe = document.createElement('iframe');
+      iframe.id = 'gfs-video-iframe';
+      iframe.className = 'absolute inset-0 w-full h-full';
+      iframe.src = 'https://www.youtube.com/embed/bpOSxM0rNPM?autoplay=1&controls=0&rel=0&modestbranding=1';
+      iframe.title = 'Vídeo apresentação GFS';
+      iframe.frameBorder = '0';
+      iframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.allowFullscreen = true;
+
+      videoWrapper.appendChild(iframe);
+    });
+  }
+</script>
+
   </body>
 </html>
