@@ -22,7 +22,7 @@
           extend: {
             fontFamily: {
               sans: ["Inter", "sans-serif"],
-              display: ['"GWBantley"', 'Inter', 'sans-serif'],
+              display: ['PPE', 'Inter', 'sans-serif'],
             },
             colors: {
               brand: {
@@ -59,8 +59,8 @@
 
     <style>
         @font-face {
-    font-family: 'GWBantley';
-    src: url('/assets/fonts/GWBantley-Regular-Trial.ttf') format('truetype');
+    font-family: 'PPE';
+    src: url('/assets/fonts/PPEditorialOld-Italic.otf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -69,7 +69,7 @@
       :root {
         --bg-body: #050505;
         --text-main: #ffffff;
-        --accent-color: #f59e0b;
+        --accent-color: #ffee10;
       }
 
       body {
@@ -105,12 +105,8 @@
 
       /* Imagem de fundo com gradiente suave */
       .bg-hero {
-        background-image: linear-gradient(
-            to bottom,
-            rgba(5, 5, 5, 0.8),
-            rgba(5, 5, 5, 0.95)
-          ),
-          url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop");
+        background-image:
+          url("assets/img/BG_HERO.png");
         background-size: cover;
         background-position: center;
         background-attachment: fixed; /* Efeito parallax simples */
@@ -121,9 +117,8 @@
     <!-- ==========================================
          SEÇÃO 1 – HERO (VISUAL NOVO)
     ========================================== -->
-    <header
-      class="relative min-h-screen flex items-center justify-center bg-hero pt-20 pb-16"
-    >
+    <header class="relative min-h-screen flex items-start justify-center bg-hero pt-32 lg:pt-40 pb-16">
+
       <div
         class="container mx-auto px-6 lg:px-12 max-w-6xl text-center relative z-10 reveal"
       >
@@ -141,20 +136,9 @@
         <h1
           class="text-4xl lg:text-7xl font-bold tracking-tight mb-8 leading-tight drop-shadow-lg"
         >
-          A receita que falta no<br class="hidden lg:block" />
-          <span class="text-brand">SEU MARKETING.</span>
+          A receita que falta no <br class="hidden lg:block" />
+          <span class="text-brand"> SEU MARKETING.</span>
         </h1>
-
-        <p
-          class="text-lg lg:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-md font-light"
-        >
-          A OFIR é uma consultoria estratégica especializada em restaurantes,
-          churrascarias, hamburguerias, pizzarias e outros negócios de
-          alimentação que querem crescer com
-          <span class="text-white font-medium">salão cheio</span>,
-          <span class="text-white font-medium">margem saudável</span> e
-          <span class="text-white font-medium">clientes recorrentes</span>.
-        </p>
 
         <!-- Bullet Points Hero (Visual novo) -->
         <div
